@@ -1,4 +1,4 @@
-import Nav from "../nav.js";
+import Nav from "../nav";
 
 function Kanbas() {
     return(
