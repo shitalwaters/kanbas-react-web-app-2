@@ -1,8 +1,10 @@
 import Assignment3 from "./a3";
+import Nav from "../nav.js";
 
 function Labs() {
     return(
-        <div className="container">
+        <div>
+            <Nav/>
             <Assignment3/>            
         </div>
     );
