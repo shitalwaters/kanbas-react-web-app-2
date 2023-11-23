@@ -1,10 +1,14 @@
 import React from 'react';
 import Database from '../Database';
 import blueSolid from '../../blueSolid.jpg'
+import "./index.css"
 
 function Dashboard() {
   return (
     <div className="col-md-10">
+        <h1>Dashboard</h1>
+        <div className="page-header"></div>
+        
       <h2>Published Courses</h2>
       <div className="d-flex flex-row flex-wrap">
         {Database.courses.map(course => (
