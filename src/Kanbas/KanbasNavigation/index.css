@@ -1,4 +1,11 @@
-.list-group-item {
+.kanbasNav-content {
+    text-align: center;
+    background-color: transparent; /* Optional: Ensure no background color */
+
+}
+
+/* Kanbas Navigation Bar */
+.kanbasNav-group-item {
     display: flex;
     flex-direction: column; /* Stack icon and text vertically */
     align-items: center;
@@ -7,15 +14,26 @@
     color: white;
     height: 100px; /* Adjusted height */
     font-size: 18px; /* Larger font size */
+    border: none ;
+    margin-right: 20px;
+    width: 120px;
+    
 }
 
-.list-group-item .link-icon {
+/* Kanbas Navigation Icons */
+
+.kanbasNav-group-item .link-icon {
     margin-bottom: 5px; /* Space between icon and text */
     font-size: 24px; /* Larger icon size */
     color: red;
+    align-items: center;
+    
+    
 }
 
-.list-group-item.active {
+
+/* Kanbas Navigation Active */
+.kanbasNav-group-item.active {
     background-color: white;
     color: red;
 }

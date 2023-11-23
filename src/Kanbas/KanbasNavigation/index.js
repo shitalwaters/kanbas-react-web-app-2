@@ -17,20 +17,29 @@ function KanbasNavigation() {
 
     ];
     const { pathname } = useLocation();
-
+    // Function to determine if a link is active
+    const isActive = (linkName) => {
+        if (linkName === "Courses" && pathname.startsWith("/Kanbas/Courses")) {
+            return true;
+        }
+        return pathname === `/Kanbas/${linkName}`;
+    };
     return (
-        <div className="list-group" style={{ width: 150 }}>
+        <div className="kanbasNav-group">
             {links.map((link, index) => (
                 <Link
-                    key={index}
-                    to={`/Kanbas/${link.name}`}
-                    className={`list-group-item ${pathname === `/Kanbas/${link.name}` ? "active" : ""}`}
->
-                    <FontAwesomeIcon icon={link.icon} className="link-icon" />
-                    {link.name}
+                key={index}
+                to={`/Kanbas/${link.name}`}
+                className={`kanbasNav-group-item ${isActive(link.name) ? "active" : ""}`}>
+                    {/* Container to stack the icons above the name */}
+                    <div className="kanbasNav-content">
+                        <FontAwesomeIcon icon={link.icon} className="link-icon" />
+                        <div>{link.name}</div> {/* Text below the icon */}
+                    </div>
                 </Link>
             ))}
         </div>
     );
 }
+
 export default KanbasNavigation;
