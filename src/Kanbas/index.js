@@ -18,9 +18,9 @@ function Kanbas() {
     <Route path="Courses/Home" element={<h1>Home</h1>} />{/* General Home Page */}
     <Route path="Courses/Modules" element={<h1>Modules</h1>} />
     <Route path="Courses/Assignments" element={<h1>Assignments</h1>} />
-    <Route path="Courses/Grades" element={<h1>Grades</h1>} />
+    <Route path="Courses/Grades" element={<h1>Home</h1>} />
     <Route path="Courses/:courseId/*" element={<Courses />} /> {/* Specific Course Page */}
-    {/* ... other routes ... */}
+
 </Routes>
 
             </div>
