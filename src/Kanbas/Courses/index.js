@@ -4,6 +4,7 @@ import { Navigate, Route, Routes, useLocation, useParams } from "react-router-do
 import CourseNavigation from "./CourseNavigation";
 import Modules from './Modules';
 import Home from './Home';
+import "./index.css"
 
 function Courses() {
     const location = useLocation();
@@ -26,8 +27,11 @@ function Courses() {
     }
         const activeLinkName = getActiveLinkName();
     return (
-        <div>
+        <div className="course-container">
         <h1>{course.name} {activeLinkName && ` - ${activeLinkName}`}</h1>
+        <div className="breadcrumb-container">
+          <div className="breadcrumb-line"></div> {/* This will be your breadcrumb line */}
+        </div>
         <CourseNavigation />
         <div>
         <div
