@@ -4,6 +4,8 @@ import { Navigate, Route, Routes, useLocation, useParams } from "react-router-do
 import CourseNavigation from "./CourseNavigation";
 import Modules from './Modules';
 import Home from './Home';
+import Assignments from './Assignments';
+import AssignmentEditor from './Assignments/AssignmentEditor';
 import "./index.css"
 
 function Courses() {
@@ -12,14 +14,13 @@ function Courses() {
     const course = Database.courses.find((course) => course._id === courseId);
 
     const getActiveLinkName = () => {
-        // This will create an array of path segments
-        // It also filters out empty strings to safely handle trailing slashes
+
         const paths = location.pathname.split('/').filter(Boolean); 
-        // This checks if the last segment is a known route
+  
         if (paths.length && ["Home", "Modules", "Assignments", "Grades"].includes(paths[paths.length - 1])) {
-            return paths[paths.length - 1]; // Return the last segment if it's a known route
+            return paths[paths.length - 1]; 
         }
-        return ""; // Default to empty string if no known route is found
+        return ""; 
     };
 
     if (!course) {
@@ -30,7 +31,7 @@ function Courses() {
         <div className="course-container">
         <h1>{course.name} {activeLinkName && ` - ${activeLinkName}`}</h1>
         <div className="breadcrumb-container">
-          <div className="breadcrumb-line"></div> {/* This will be your breadcrumb line */}
+          <div className="breadcrumb-line"></div>
         </div>
         <CourseNavigation />
         <div>
@@ -49,11 +50,8 @@ function Courses() {
         <Route path="Home" element={<Home/>} />
         <Route path="Home" element={<h1>Home</h1>} />
         <Route path="Modules" element={<Modules/>} />
-        <Route path="Assignments" element={<h1>Assignments</h1>} />
-        <Route
-        path="Assignments/:assignmentId"
-        element={<h1>Assignment Editor</h1>}
-        />
+        <Route path="Assignments" element={<Assignments/>} />
+        <Route path="Assignments/:assignmentId" element={<AssignmentEditor/>}/>
         <Route path="Grades" element={<h1>Grades</h1>} />
         </Routes>
         </div>
