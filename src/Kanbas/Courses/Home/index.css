@@ -1,0 +1,17 @@
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.module-group {
+    flex: 1; /* Allows module list to grow and take available space */
+    margin-right: 50px; /* Space between the module list and sidebar */
+}
+
+.status-container {
+    width: 300px; /* Set a specific width for the Status container */
+    display: flex;
+    justify-content: center; /* Center horizontally inside the status container */
+    align-items: center; /* Center vertically inside the status container */
+}

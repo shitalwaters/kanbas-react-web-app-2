@@ -31,11 +31,14 @@ function Courses() {
         <CourseNavigation />
         <div>
         <div
+        
         className="overflow-y-scroll position-fixed bottom-0 end-0"
         style={{
         left: "320px",
         top: "50px",
         }}
+
+        
         >
         <Routes>
         <Route path="/" element={<Navigate to="Home" />} />
