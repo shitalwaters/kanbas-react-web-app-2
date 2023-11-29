@@ -7,3 +7,14 @@
   .d-flex flex-row flex-wrap {
     background-color: teal !important;
   }
+  .main-container {
+    display: flex;
+}
+
+.content-area {
+    /* Style for main content area */
+}
+
+.sidebar {
+    margin-top: 100px;
+}
