@@ -10,29 +10,36 @@ function Dashboard() {
       name: "New Course", number: "New Number",
       startDate: "2023-09-10", endDate: "2023-12-15",
       });
-      const updateCourse = () => {
-        setCourses(
-        courses.map((c) => {
-        if (c._id === course._id) {
-        return course;
-        } else {
-        return c;
-        }
-        })
-        );
-        };
 
-      const addNewCourse = () => {
-      setCourses([...courses,
-      { ...course,
+    {/* Update Course */}
+    const updateCourse = () => {
+      setCourses(courses.map((c) => {
+          if (c._id === course._id) {
+              return {...course}; // Spread operator to avoid direct mutation
+          } else {
+              return c;
+          }
+      }));
+  };
+
+  {/* Edit Course */}
+  const editCourse = (selectedCourse) => {
+      setCourse({...selectedCourse}); // Use spread operator to avoid direct mutation
+  };
+
+{/* Add New Course*/}
+      const addNewCourse = () => {setCourses([...courses,{ ...course,
       _id: new Date().getTime() }]);
       };
 
+{/* Delete Course*/}
       const deleteCourse = (courseId) => {
         setCourses(courses.filter((course) => course._id !== courseId));
         };
+
+
     return (
-        <div className="main-container"> {/* Main container */}
+        <div className="main-container"> 
             
             <div className="content-area col-md-8"> {/* Main content area */}
                 <h1>Dashboard</h1>
@@ -44,12 +51,12 @@ function Dashboard() {
                 
                 <div className="d-flex flex-row flex-wrap">
                     {courses.map(course => (
-                        <div key={course._id} className="m-3" style={{ flex: '1 0 calc(25% - 24px)', maxWidth: 'calc(25% - 24px)' }}>
+                        <div key={course.number} className="m-3" style={{ flex: '1 0 calc(25% - 24px)', maxWidth: 'calc(25% - 24px)' }}>
                             <div className="card">
                                 <img className="card-img-top" src={blueSolid} alt="Course Image" />
-                                <Link key={course._id} to={`/Kanbas/Courses/${course._id}`} className="list-group-item">
+                                <Link key={course.number} to={`/Kanbas/Courses/${course.number}`} className="list-group-item">
                                     {course.name}
-                                    <p className="card-text">{course._id} </p>
+                                    <p className="card-text">{course.number} </p>
                                     <p className="card-text">{course.startDate} to {course.endDate}</p>
 
                                     <button
@@ -63,6 +70,7 @@ function Dashboard() {
                                       }}>
                                       Delete
                                     </button>
+                                    
 
                                 </Link>
                             </div>
