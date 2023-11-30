@@ -6,13 +6,16 @@ import CourseNavigation from "./Courses/CourseNavigation";
 import Modules from "./Courses/Modules";
 import Assignments from "./Courses/Assignments";
 import AssignmentEditor from "./Courses/Assignments/AssignmentEditor";
-
+import store from "./store";
+import { Provider } from "react-redux";
 
 function Kanbas() {
     return (
+        <Provider store={store}>
         <div className="d-flex">
             <KanbasNavigation />
             <div>
+                
             <Routes>
     <Route path="/" element={<Navigate to="Dashboard" />} />
     <Route path="Account" element={<h1>Account</h1>} />
@@ -29,6 +32,7 @@ function Kanbas() {
 
             </div>
         </div>
+        </Provider>
     );
 }
 export default Kanbas;
